@@ -5,6 +5,7 @@ class SongsController < ApplicationController
   # GET /songs.json
   def index
     @songs = Song.all
+    @artists = Artist.all
   end
 
   # GET /songs/1
@@ -15,15 +16,18 @@ class SongsController < ApplicationController
   # GET /songs/new
   def new
     @song = Song.new
+    @artists = Artist.all
   end
 
   # GET /songs/1/edit
   def edit
+    @artists = Artist.all
   end
 
   # POST /songs
   # POST /songs.json
   def create
+    @artists = Artist.all 
     @song = Song.new(song_params)
 
     respond_to do |format|
